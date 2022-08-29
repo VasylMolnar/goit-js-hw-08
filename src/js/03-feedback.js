@@ -37,14 +37,9 @@ document.addEventListener('DOMContentLoaded', event => {
   const message = document.querySelector('.feedback-form textarea');
   console.log(data);
 
-  if (data.hasOwnProperty('message') && data.hasOwnProperty('email')) {
-    email.value = data.email;
-    message.value = data.message;
-  } else {
-    if (data.hasOwnProperty('email')) {
-      email.value = data.email;
-    } else {
-      message.value = data.message;
-    }
+  if (!data) {
+    return;
   }
+  email.value = data.email || '';
+  message.value = data.message || '';
 });
