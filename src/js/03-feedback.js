@@ -42,4 +42,7 @@ document.addEventListener('DOMContentLoaded', event => {
   }
   email.value = data.email || '';
   message.value = data.message || '';
+
+  formData.email = email.value;
+  formData.message = message.value;
 });
