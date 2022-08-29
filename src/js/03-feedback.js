@@ -18,7 +18,9 @@ function onSubmitForm(e) {
   localStorage.removeItem('feedback-form-state');
 }
 
+/*
 (function dataFromLocalStorage() {
+   console.log(data);
   const data = JSON.parse(localStorage.getItem('feedback-form-state'));
   const email = document.querySelector('.feedback-form input');
   const message = document.querySelector('.feedback-form textarea');
@@ -26,4 +28,16 @@ function onSubmitForm(e) {
     email.value = data.email;
     message.value = data.message;
   }
-})();
+})();*/
+
+document.addEventListener('DOMContentLoaded', event => {
+  //console.log('DOM fully loaded and parseadsd');
+  const data = JSON.parse(localStorage.getItem('feedback-form-state'));
+  const email = document.querySelector('.feedback-form input');
+  const message = document.querySelector('.feedback-form textarea');
+  //console.log(data);
+  if (data) {
+    email.value = data.email;
+    message.value = data.message;
+  }
+});
