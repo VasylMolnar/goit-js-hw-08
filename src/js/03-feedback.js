@@ -35,9 +35,16 @@ document.addEventListener('DOMContentLoaded', event => {
   const data = JSON.parse(localStorage.getItem('feedback-form-state'));
   const email = document.querySelector('.feedback-form input');
   const message = document.querySelector('.feedback-form textarea');
-  //console.log(data);
-  if (data) {
+  console.log(data);
+
+  if (data.hasOwnProperty('message') && data.hasOwnProperty('email')) {
     email.value = data.email;
     message.value = data.message;
+  } else {
+    if (data.hasOwnProperty('email')) {
+      email.value = data.email;
+    } else {
+      message.value = data.message;
+    }
   }
 });
